@@ -1,3 +1,5 @@
 # Slash
 
-Developed with Unreal Engine 5
+My (first?) videogame developed with Unreal Engine 5.
+
+I am following the Udemy course step by step
