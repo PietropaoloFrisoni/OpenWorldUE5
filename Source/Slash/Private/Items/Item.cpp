@@ -17,6 +17,11 @@ void AItem::BeginPlay()
 	Super::BeginPlay();
 
 	UE_LOG(LogTemp, Warning, TEXT("BeginPlay called from C++!"));
+
+	if (GEngine)
+	{
+		GEngine->AddOnScreenDebugMessage(1, 60.f, FColor::Cyan, FString("Item on screen message!"));
+	}
 	
 }
 
