@@ -12,6 +12,7 @@ class SLASH_API AItem : public AActor
 	GENERATED_BODY()
 	
 public:	
+
 	// Sets default values for this actor's properties
 	AItem();
 	
@@ -20,6 +21,7 @@ public:
 
 
 protected:
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	
@@ -29,10 +31,15 @@ protected:
 	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Sine Parameters")
 	float TimeConstant = 5.f;
 
+	UFUNCTION(BlueprintPure)
+	float TransformedSin();
+
+	UFUNCTION(BlueprintPure)
+	float TransformedCos();
+
 private:
 
 	UPROPERTY(VisibleAnywhere)
 	float RunningTime;
-
 
 };

@@ -42,19 +42,31 @@ void AItem::BeginPlay()
 
 }
 
+float AItem::TransformedSin()
+{
+	return Amplitude * FMath::Sin(RunningTime * TimeConstant);
+}
+
+float AItem::TransformedCos()
+{
+	return Amplitude * FMath::Cos(RunningTime * TimeConstant);
+}
+
 // Called every frame
 // DeltaTime is time passed since last frame
 void AItem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	RunningTime += DeltaTime;
+
 	// UE_LOG(LogTemp, Warning, TEXT("DeltaTime: %f"), DeltaTime);
 
-	float MovementRate = 50.f;
+	// float MovementRate = 50.f;
 
-	AddActorWorldOffset(FVector(MovementRate * DeltaTime, 0.f, 0.f));
+	// AddActorWorldOffset(FVector(MovementRate * DeltaTime, 0.f, 0.f));
 
 	DRAW_SPHERE_SingleFrame(GetActorLocation());
+	DRAW_VECTOR_SingleFrame(GetActorLocation(), GetActorLocation() + GetActorForwardVector() * 100.f);
 
 }
-
