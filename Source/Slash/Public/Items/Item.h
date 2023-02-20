@@ -15,7 +15,7 @@ public:
 	// Sets default values for this actor's properties
 	AItem();
 	
-	// Called every fram
+	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 
@@ -23,5 +23,16 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Sine Parameters")
+	float Amplitude = 0.25f;
+
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Sine Parameters")
+	float TimeConstant = 5.f;
+
+private:
+
+	UPROPERTY(VisibleAnywhere)
+	float RunningTime;
+
 
 };

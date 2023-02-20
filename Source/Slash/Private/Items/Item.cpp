@@ -18,6 +18,7 @@ void AItem::BeginPlay()
 {
 	Super::BeginPlay();
 
+	/*
 	UE_LOG(LogTemp, Warning, TEXT("BeginPlay called from C++!"));
 
 	if (GEngine)
@@ -27,8 +28,8 @@ void AItem::BeginPlay()
 
 	UWorld* World = GetWorld();
 
-	SetActorLocation(FVector(0.f, 0.f, 50.f));
-	SetActorRotation(FRotator(0.f, 45.f, 0.f));
+	// SetActorLocation(FVector(0.f, 0.f, 50.f));
+	// SetActorRotation(FRotator(0.f, 45.f, 0.f));
 
 	FVector Location = GetActorLocation();
 	FVector Forward = GetActorForwardVector();
@@ -37,16 +38,23 @@ void AItem::BeginPlay()
 	//DRAW_LINE(Location, Location + Forward * 100.f);
 	//DRAW_POINT(Location + Forward * 100.f);
 	DRAW_VECTOR(Location, Location + Forward * 100.f);
-
+	*/
 
 }
 
 // Called every frame
+// DeltaTime is time passed since last frame
 void AItem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	UE_LOG(LogTemp, Warning, TEXT("DeltaTime: %f"), DeltaTime);
+	// UE_LOG(LogTemp, Warning, TEXT("DeltaTime: %f"), DeltaTime);
+
+	float MovementRate = 50.f;
+
+	AddActorWorldOffset(FVector(MovementRate * DeltaTime, 0.f, 0.f));
+
+	DRAW_SPHERE_SingleFrame(GetActorLocation());
 
 }
 
