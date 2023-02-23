@@ -6,12 +6,17 @@
 #include "GameFramework/Pawn.h"
 #include "Bird.generated.h"
 
+// forward declaration (#include "Components/CapsuleComponent.h" is in the cpp file
+class UCapsuleComponent;
+
+
 UCLASS()
 class SLASH_API ABird : public APawn
 {
 	GENERATED_BODY()
 
 public:
+
 	// Sets default values for this pawn's properties
 	ABird();
 
@@ -22,7 +27,14 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 protected:
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+private:
+
+	// For collisions)
+	UPROPERTY(VisibleAnywhere)
+	UCapsuleComponent* Capsule;
 
 };

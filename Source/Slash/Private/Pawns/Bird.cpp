@@ -2,6 +2,7 @@
 
 
 #include "Pawns/Bird.h"
+#include "Components/CapsuleComponent.h"
 
 // Sets default values
 ABird::ABird()
@@ -9,6 +10,11 @@ ABird::ABird()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	Capsule = CreateAbstractDefaultSubobject<UCapsuleComponent>(TEXT("Capsule"));
+	Capsule->SetCapsuleHalfHeight(20.f);
+	Capsule->SetCapsuleRadius(20.f);
+
+	SetRootComponent(Capsule); // or RootComponent = Capsule;
 }
 
 // Called when the game starts or when spawned
