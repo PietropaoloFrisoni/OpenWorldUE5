@@ -6,9 +6,9 @@
 #include "GameFramework/Pawn.h"
 #include "Bird.generated.h"
 
-// forward declaration (#include "Components/CapsuleComponent.h" is in the cpp file
+// forward declaration (#include "Components/CapsuleComponent.h" is in the cpp file)
 class UCapsuleComponent;
-
+class USkeletalMeshComponent;
 
 UCLASS()
 class SLASH_API ABird : public APawn
@@ -36,5 +36,8 @@ private:
 	// For collisions)
 	UPROPERTY(VisibleAnywhere)
 	UCapsuleComponent* Capsule;
+
+	UPROPERTY(VisibleAnywhere)
+	USkeletalMeshComponent* BirdMesh;
 
 };
