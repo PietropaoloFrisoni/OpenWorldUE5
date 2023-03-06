@@ -1,5 +1,5 @@
-# Slash
+# Open World Unreal Engine 5
 
-My (first?) videogame developed with Unreal Engine 5.
+My first project developed with Unreal Engine 5.
 
-I am following the Udemy course step by step
+![alt text](https://github.com/PietropaoloFrisoni/OpenWorldUE5/blob/master/HRScreenshot.png?raw=true)
